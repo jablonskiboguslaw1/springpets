@@ -22,8 +22,8 @@ public class Owner {
     @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER )
     @EqualsAndHashCode.Exclude
     private Set<Pet> pets = new HashSet<>();
-    @Formula("select count(*) from Pet p where p.ownerId=id")
+   // @Formula("select count(p.id) from Pet p where p.id=id")
     private Double numOfPets;
-    @Formula(value="(select avg(p.petAge) from Pet p where p.ownerId=id)")
+    //@Formula(value="(select avg(p.petAge) from Pet p where p.id=id)")
     private Double avgPetsAge;
 }
