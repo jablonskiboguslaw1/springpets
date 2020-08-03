@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pets</title>
+</head>
+<body>
+
+<table>
+    <tr th:each="pet : ${pets}">
+        <td th:text="${pet.name}"></td>
+        <td th:text="${pet.age}"></td>
+        <td th:text="${pet.weight}"></td>
+        <td th:text="${pet.race}"></td>
+        <td th:text="${pet.pureRace}"></td>
+    <!--    <td th:text="${pet.owner.name}"></td>-->
+        <td><a th:href="@{/pet/delete(id=${pet.id})}">Delete</a></td>
+    </tr>
+</table>
+<a th:href="@{/pet}">Add next pet:</a>
+</body>
+</html>

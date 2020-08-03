@@ -19,7 +19,7 @@ public class Owner {
     private String name;
     private String surname;
     private double age;
-    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER )
+    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER ,cascade = CascadeType.REMOVE, orphanRemoval = true)
     @EqualsAndHashCode.Exclude
     private Set<Pet> pets = new HashSet<>();
    // @Formula("select count(p.id) from Pet p where p.id=id")

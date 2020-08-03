@@ -12,6 +12,9 @@
         <td th:text="${owner.surname}"></td>
         <td th:text="${owner.age}"></td>
         <td th:text="${owner.id}"></td>
+        <td><a th:href="@{/owner/delete(id=${owner.id})}">Delete</a></td>
+        <td><a th:href="@{/owner/details(id=${owner.id})}">Details</a></td>
+        <td><a th:href="@{/owner/edit(id=${owner.id})}">Edit</a></td>
     </tr>
 </table>
 <a th:href="@{/owner}">Add next owner:</a>

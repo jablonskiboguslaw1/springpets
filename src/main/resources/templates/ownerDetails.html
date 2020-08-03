@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Owner Details</title>
+</head>
+<body>
+
+<div id="page-container">
+    <div id="owner-data" class="halfpage" th:object="${owner}">
+        <table id="owner-tab">
+            <tr><td>Identifier</td>
+            <td th:text="*{id}"</td></tr>
+            <tr><td>First name</td>
+                <td th:text="*{name}"</td></tr>
+            <tr><td>Last Name</td>
+                <td th:text="*{surname}"</td></tr>
+            <tr><td>Age</td>
+                <td th:text="*{age}"</td></tr>
+            <tr><td>Average pets age</td>
+                <td th:text="*{avgPetsAge}"</td></tr>
+            <tr><td>Number of pets</td>
+                <td th:text="*{numOfPets}"</td></tr>
+        </table>
+    </div>
+    <div id="pets-data" class="half-page">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Age</td>
+                <td>Weight</td>
+                <td>Race</td>
+                <td>Is Pure Race</td>
+
+            </tr>
+            <tr th:each="pet : ${owner.pets}">
+                <td th:text="${pet.name}"></td>
+                <td th:text="${pet.age}"></td>
+                <td th:text="${pet.weight}"></td>
+                <td th:text="${pet.race}"></td>
+                <td th:text="${pet.pureRace}"></td>
+                <td><a th:href="@{/pet/delete(id=${pet.id},ownerId=${owner.id})}">Delete pet</a></td>
+            </tr>
+        </table>
+        <a th:href="@{/pet(id=${owner.id})}">Add pet</a><br/>
+    </div>
+</div>
+
+</body>
+</html>

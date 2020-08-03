@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -21,5 +22,14 @@ public class OwnerService {
 
     public List<Owner> findAll() {
         return ownerRepository.findAll();
+    }
+
+    public void deleteById(Long id) {
+
+        ownerRepository.deleteById(id);
+    }
+
+    public Optional<Owner> findById(Long id) {
+        return  ownerRepository.findById(id);
     }
 }

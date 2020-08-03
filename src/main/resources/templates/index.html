@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
-
-
+<div th:each="race : ${races}">
+    <div class="race-div" th:text="${race}"></div>
+</div>
+<a th:href="@{/}">Home</a>
+<a th:href="@{/owner}">Register Pet's Owner</a>
+<a th:href="@{/owner/list}">Pet Owners List</a>
+<a th:href="@{/pet}">Add Pet</a>
 
 </body>
 </html>
