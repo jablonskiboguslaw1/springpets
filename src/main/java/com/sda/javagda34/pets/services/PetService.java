@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -24,5 +25,9 @@ public class PetService {
 
     public void update(Pet pet) {
         petRepository.save(pet);
+    }
+
+    public Optional<Pet> findById(Long id) {
+ return        petRepository.findById(id);
     }
 }

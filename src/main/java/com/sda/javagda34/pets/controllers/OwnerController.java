@@ -69,7 +69,7 @@ Owner owner = optionalOwner.get();
         model.addAttribute("owner", owner);
         return "ownerForm";}
         else{
-return "redirct:/owner/list";
+return "redirect:/owner/list";
         }
     }
 }

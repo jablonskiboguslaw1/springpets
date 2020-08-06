@@ -8,25 +8,32 @@
 
 
 <form th:action="@{/pet}" method="post" th:object="${pet}">
-<div th:if="${ownerId!=null}"><input hidden type="hidden" th:value="${ownerId}" name ="ownerId"/></div>
+    <div th:if="${ownerId!=null}"><input hidden type="hidden" th:value="${ownerId}" name="ownerId"/></div>
     <div th:if="${ownerId==null}">
-        <label for="owner">Owner: </label>
-        <select class="owner-sel" id="owner" >
+        <label for="ownerId">Owner: </label>
+        <select class="owner-sel" name="ownerId" id="ownerId">
             <option th:each="owner : ${owners}" th:value="${owner.id}" th:text="${owner.name +' ' + owner.surname}">
             </option>
         </select>
 
     </div>
-    <label for="petname">Petname: </label>
-    <input type="text" id="petname" name="petname" th:field="*{name}"><br/>
+    <input hidden type="text" id="id" name="petId" th:field="*{id}"/><br/>
+    <label for="petName">Pet name: </label>
+
+    <input type="text" id="petName" name="petName" th:field="*{name}"><br/>
 
 
     <label for="petAge">Age: </label>
     <input type="text" id="petAge" name="petAge" th:field="*{age}"><br/>
     <label for="petWeight">Pet weight: </label>
     <input type="text" id="petWeight" name="petWeight" th:field="*{weight}"><br/>
-    <label for="petRace">Race: </label>
-    <input type="text" id="petRace" name="petRace" th:field="*{race}"><br/>
+    <label for="races">Race: </label>
+    <select id="races" th:field="*{race}">
+        <option th:each="race :${raceList}" th:value="${race}" th:text="${race}">
+
+        </option>
+    </select>
+
     <label for="pureRace">Pure race </label>
     <input type="checkbox" id="pureRace" name="pureRace" th:field="*{pureRace}"><br/>
 

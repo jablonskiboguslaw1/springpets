@@ -40,9 +40,10 @@
                 <td th:text="${pet.race}"></td>
                 <td th:text="${pet.pureRace}"></td>
                 <td><a th:href="@{/pet/delete(id=${pet.id},ownerId=${owner.id})}">Delete pet</a></td>
+                <td><a th:href="@{/pet(id=${pet.id},ownerId=${owner.id})}">Edit pet</a></td>
             </tr>
         </table>
-        <a th:href="@{/pet(id=${owner.id})}">Add pet</a><br/>
+        <a th:href="@{/pet(ownerId=${owner.id})}">Add pet</a><br/>
     </div>
 </div>
 

@@ -8,10 +8,11 @@
 <div th:each="race : ${races}">
     <div class="race-div" th:text="${race}"></div>
 </div>
-<a th:href="@{/}">Home</a>
-<a th:href="@{/owner}">Register Pet's Owner</a>
-<a th:href="@{/owner/list}">Pet Owners List</a>
-<a th:href="@{/pet}">Add Pet</a>
-
+<ul>
+    <li><a th:href="@{/}">Home</a></li>
+    <li><a th:href="@{/owner}">Register Pet's Owner</a>
+    <li><a th:href="@{/owner/list}">Pet Owners List</a></li>
+    <li><a th:href="@{/pet}">Add Pet</a></li>
+</ul>
 </body>
 </html>
