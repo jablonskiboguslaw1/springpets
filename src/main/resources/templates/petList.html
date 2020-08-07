@@ -9,23 +9,24 @@
 <div th:replace="fragments:: navigator"/>
 <h2> Pets:</h2>
 <div class="row rowheaderdetails">
-    <div class="col-3">Name</div>
+    <div class="col-2">Name</div>
     <div class="col-1">Age</div>
     <div class="col-1">Weight</div>
-    <div class="col-3">Race</div>
+    <div class="col-2">Race</div>
     <div class="col-2">Is Pure Race</div>
-    <div class="col-3">Owner</div>
+    <div class="col-2">Pet Id</div>
     <div class="col-2">Action</div>
 
 
 </div>
 
 <div class="row rowelement" th:each="pet : ${pets}">
-    <div class="col-3" th:text="${pet.name}"></div>
+    <div class="col-2" th:text="${pet.name}"></div>
     <div class="col-1" th:text="${pet.age}"></div>
-    <div class="col-1" th:text="${pet.weight}"></div>
+    <div class="col-1 weight-value" th:text="${pet.weight}"></div>
     <div class="col-2" th:text="${pet.race}"></div>
-    <div class="col-3" style="text-align: center" th:text="${pet.pureRace}"></div>
+    <div class="col-2" style="text-align: center" th:text="${pet.pureRace}"></div>
+    <div class="col-2" style="text-align: center" th:text="${pet.id}"></div>
     <div>
         <a th:href="@{/pet/delete(id=${pet.id},ownerId=${pet.owner.id})}">
             <button type="button" class="btn btn-danger">Kill pet</button>
