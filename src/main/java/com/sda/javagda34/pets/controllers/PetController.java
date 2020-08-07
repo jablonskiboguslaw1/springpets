@@ -27,6 +27,7 @@ public class PetController {
 
     @GetMapping
     public String getPetForm(Model model, Pet pet, @RequestParam(name = "id",required = false) Long id, @RequestParam(name = "ownerId", required = false) Long ownerId) {
+if(id!=null) pet=petService.findById(id).get();
 
         model.addAttribute("pet", pet);
         model.addAttribute("ownerId", ownerId);
@@ -44,8 +45,9 @@ public class PetController {
             Owner owner = optionalOwner.get();
             pet.setOwner(owner);
             petService.update(pet);
+           return "redirect:/owner/details?id=" + ownerId;
         }
-        return "redirect:/owner/details?id=" + ownerId;
+        return "redirect:/owner/list";
 
     }
 

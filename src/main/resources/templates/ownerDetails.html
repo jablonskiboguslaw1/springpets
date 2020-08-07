@@ -3,49 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>Owner Details</title>
+    <div th:replace="fragments:: styles"/>
 </head>
 <body>
+<div th:replace="fragments:: navigator"/>
+<h1>Owners Details</h1>
+<div class="container">
+    <div class="row">
+        <div id="col-md-6 container" th:object="${owner}">
+            <div class="row">
+                <div class="col-6">
+                    <label for="id">Identifier</label></div>
+                <div class="col-6">
+                    <div id="id" th:text="*{id}"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6"><label for="name">First name</label></div>
+                <div class="col-6">
+                    <div id="name" th:text="*{name}"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6"><label for="lastName">Last name</label></div>
+                <div class="col-6">
+                    <div id="lastName" th:text="*{surname}"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6"><label for="age">Age</label></div>
+                <div class="col-6">
+                    <div id="age" th:text="*{age}"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6"><label for="petsage">Average pets age</label></div>
+                <div class="col-6">
+                    <div id="petsage" th:text="*{avgPetsAge}"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6"><label for="petsNum">Number of pets</label></div>
+                <div class="col-6">
+                    <div id="petsNum" th:text="*{numOfPets}"></div>
+                </div>
+            </div>
+        </div>
+        <div id="pets-data" class="col-md-6">
+            <h2> Pets:</h2>
+            <div class="row rowheaderdetails">
+                <div class="col-3">Name</div>
+                <div class="col-1">Age</div>
+                <div class="col-2">Weight</div>
+                <div class="col-3">Race</div>
+                <div class="col-3">Is Pure Race</div>
 
-<div id="page-container">
-    <div id="owner-data" class="halfpage" th:object="${owner}">
-        <table id="owner-tab">
-            <tr><td>Identifier</td>
-            <td th:text="*{id}"</td></tr>
-            <tr><td>First name</td>
-                <td th:text="*{name}"</td></tr>
-            <tr><td>Last Name</td>
-                <td th:text="*{surname}"</td></tr>
-            <tr><td>Age</td>
-                <td th:text="*{age}"</td></tr>
-            <tr><td>Average pets age</td>
-                <td th:text="*{avgPetsAge}"</td></tr>
-            <tr><td>Number of pets</td>
-                <td th:text="*{numOfPets}"</td></tr>
-        </table>
+            </div>
+
+            <div class="row rowelement" th:each="pet : ${owner.pets}">
+                <div class="col-3" th:text="${pet.name}"></div>
+                <div class="col-1" th:text="${pet.age}"></div>
+                <div class="col-2" th:text="${pet.weight}"></div>
+                <div class="col-3" th:text="${pet.race}"></div>
+                <div class="col-3" style="text-align: center" th:text="${pet.pureRace}"></div>
+                <div>
+                    <a th:href="@{/pet/delete(id=${pet.id},ownerId=${owner.id})}">
+                        <button type="button" class="btn btn-danger">Kill pet</button>
+                    </a>
+                    <a th:href="@{/pet(id=${pet.id},ownerId=${owner.id})}">
+                        <button type="button" class="btn btn-warning">Edit pet</button>
+                    </a>
+                    </div>
+                </div>
+                <a th:href="@{/pet(ownerId=${owner.id})}" class="col-12 addbutton">
+                    <button type="button" class="btn btn-success">Add your new wonderful pet</button>
+                </a><br/>
+            </div>
+        </div>
     </div>
-    <div id="pets-data" class="half-page">
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>Age</td>
-                <td>Weight</td>
-                <td>Race</td>
-                <td>Is Pure Race</td>
 
-            </tr>
-            <tr th:each="pet : ${owner.pets}">
-                <td th:text="${pet.name}"></td>
-                <td th:text="${pet.age}"></td>
-                <td th:text="${pet.weight}"></td>
-                <td th:text="${pet.race}"></td>
-                <td th:text="${pet.pureRace}"></td>
-                <td><a th:href="@{/pet/delete(id=${pet.id},ownerId=${owner.id})}">Delete pet</a></td>
-                <td><a th:href="@{/pet(id=${pet.id},ownerId=${owner.id})}">Edit pet</a></td>
-            </tr>
-        </table>
-        <a th:href="@{/pet(ownerId=${owner.id})}">Add pet</a><br/>
-    </div>
-</div>
-
+<div th:fragment="footers"/>
 </body>
 </html>

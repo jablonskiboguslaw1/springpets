@@ -3,20 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Pets</title>
+    <div th:replace="fragments:: styles"/>
 </head>
 <body>
+<div th:replace="fragments:: navigator"/>
+<h2> Pets:</h2>
+<div class="row rowheaderdetails">
+    <div class="col-3">Name</div>
+    <div class="col-1">Age</div>
+    <div class="col-1">Weight</div>
+    <div class="col-3">Race</div>
+    <div class="col-2">Is Pure Race</div>
+    <div class="col-3">Owner</div>
+    <div class="col-2">Action</div>
 
-<table>
-    <tr th:each="pet : ${pets}">
-        <td th:text="${pet.name}"></td>
-        <td th:text="${pet.age}"></td>
-        <td th:text="${pet.weight}"></td>
-        <td th:text="${pet.race}"></td>
-        <td th:text="${pet.pureRace}"></td>
-    <!--    <td th:text="${pet.owner.name}"></td>-->
-        <td><a th:href="@{/pet/delete(id=${pet.id})}">Delete</a></td>
-    </tr>
-</table>
-<a th:href="@{/pet}">Add next pet:</a>
+
+</div>
+
+<div class="row rowelement" th:each="pet : ${pets}">
+    <div class="col-3" th:text="${pet.name}"></div>
+    <div class="col-1" th:text="${pet.age}"></div>
+    <div class="col-1" th:text="${pet.weight}"></div>
+    <div class="col-2" th:text="${pet.race}"></div>
+    <div class="col-3" style="text-align: center" th:text="${pet.pureRace}"></div>
+    <div>
+        <a th:href="@{/pet/delete(id=${pet.id},ownerId=${pet.owner.id})}">
+            <button type="button" class="btn btn-danger">Kill pet</button>
+        </a>
+        <a th:href="@{/pet(id=${pet.id})}">
+            <button type="button" class="btn btn-warning">Edit pet</button>
+        </a>
+    </div>
+</div>
+
+<a th:href="@{/pet}"><button type="button" class="col-4 btn btn-success">Add next pet</button></a>
+<div th:fragment="footers"/>
 </body>
 </html>

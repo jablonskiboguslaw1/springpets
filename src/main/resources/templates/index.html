@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <div th:replace="fragments:: styles"/>
 </head>
 <body>
-<div th:each="race : ${races}">
-    <div class="race-div" th:text="${race}"></div>
-</div>
-<ul>
-    <li><a th:href="@{/}">Home</a></li>
-    <li><a th:href="@{/owner}">Register Pet's Owner</a>
-    <li><a th:href="@{/owner/list}">Pet Owners List</a></li>
-    <li><a th:href="@{/pet}">Add Pet</a></li>
-</ul>
+
+<div th:replace="fragments:: navigator"/>
+
+<img class="homeimg" th:src="@{/images/dogs.jpeg}" alt="happy dogs">
+
+
+<div th:replace="fragments:: footers"/>
 </body>
 </html>

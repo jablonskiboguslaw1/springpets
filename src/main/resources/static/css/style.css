@@ -1,5 +1,11 @@
 /* stylelint-disable selector-list-comma-newline-after */
 
+body {
+margin-left: auto;
+margin-right: auto;
+    max-width: 1024px;
+}
+
 .blog-header {
     line-height: 1;
     border-bottom: 1px solid #e5e5e5;
@@ -68,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
     .h-md-250 { height: 250px; }
 }
 
-/* Pagination */
+
 .blog-pagination {
     margin-bottom: 4rem;
 }
@@ -76,9 +82,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 2rem;
 }
 
-/*
- * Blog posts
- */
+
 .blog-post {
     margin-bottom: 4rem;
 }
@@ -91,9 +95,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #999;
 }
 
-/*
- * Footer
- */
 .blog-footer {
     padding: 2.5rem 0;
     color: #999;
@@ -103,4 +104,64 @@ h1, h2, h3, h4, h5, h6 {
 }
 .blog-footer p:last-child {
     margin-bottom: 0;
+}
+.rowelement:nth-child(odd) {
+    background-color: navajowhite;
+}
+
+.rowelement:nth-child(even) {
+    background-color: bisque;
+}
+
+.rowelement:nth-child(even):hover {
+    background-color:burlywood;
+}
+
+.rowelement:nth-child(odd):hover {
+    background-color: burlywood;
+}
+
+.rowheader {
+    background-color: sandybrown;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+
+}
+
+
+.rowheaderdetails {
+    background-color: sandybrown;
+
+    text-align: center;
+    font-weight: 500;
+   }
+.addbutton{
+    margin-left: 0;
+    padding-left: 0;
+}
+/*.container{
+    padding-left: 0;
+    margin-left: 0;
+}*/
+#pets-data{
+    margin-left: 50px;
+}
+nav{
+
+    background-color:gainsboro;
+}
+
+.form-container{
+    margin-top: 20px;
+}
+.row{
+    margin-top: 2px;
+}
+.homeimg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 }

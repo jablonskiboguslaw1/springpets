@@ -3,20 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Owners</title>
+    <div th:replace="fragments :: styles"/>
 </head>
 <body>
 
-<table>
-    <tr th:each="owner : ${owners}">
-        <td th:text="${owner.name}"></td>
-        <td th:text="${owner.surname}"></td>
-        <td th:text="${owner.age}"></td>
-        <td th:text="${owner.id}"></td>
-        <td><a th:href="@{/owner/delete(id=${owner.id})}">Delete</a></td>
-        <td><a th:href="@{/owner/details(id=${owner.id})}">Details</a></td>
-        <td><a th:href="@{/owner/edit(id=${owner.id})}">Edit</a></td>
-    </tr>
-</table>
-<a th:href="@{/owner}">Add next owner:</a>
+
+<div th:replace="fragments :: navigator"/>
+<main>
+    <h1>Owners</h1>
+    <div class="container">
+        <div class="row rowheader">
+            <div class="col-2">Name</div>
+            <div class="col-2">Last Name</div>
+            <div class="col-1"> Age</div>
+            <div class="col-2"> Owner Id</div>
+            <div class="col-5"> Actions</div>
+        </div>
+
+        <div class="row rowelement" th:each="owner : ${owners}">
+            <div class="col-2" th:text="${owner.name}"></div>
+            <div class="col-2" th:text="${owner.surname}"></div>
+            <div class="col-1" th:text="${owner.age}"></div>
+            <div class="col-2" style="text-align: center" th:text="${owner.id}"></div>
+            <div class="col-5">
+                <a th:href="@{/owner/delete(id=${owner.id})}">
+                    <button type="button" class="col-md-3 btn btn-danger"> Delete</button>
+                </a>
+                <a th:href="@{/owner/details(id=${owner.id})}">
+                    <button type="button" class="col-md-3 btn btn-success">Details</button>
+                </a>
+                <a th:href="@{/owner/edit(id=${owner.id})}">
+                    <button type="button" class="col-md-3 btn btn-primary">Edit</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:fragment="footers"/>
+
 </body>
 </html>
