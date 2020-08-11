@@ -68,7 +68,7 @@
                 <div class="col-3" style="text-align: center" th:text="${pet.pureRace}"></div>
                 <div>
                     <a th:href="@{/pet/delete(id=${pet.id},ownerId=${owner.id})}">
-                        <button type="button" class="btn btn-danger">Kill pet</button>
+                        <button type="button" class="btn btn-danger">Remove pet</button>
                     </a>
                     <a th:href="@{/pet(id=${pet.id},ownerId=${owner.id})}">
                         <button type="button" class="btn btn-warning">Edit pet</button>

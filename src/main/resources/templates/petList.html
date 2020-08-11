@@ -29,7 +29,7 @@
     <div class="col-2" style="text-align: center" th:text="${pet.id}"></div>
     <div>
         <a th:href="@{/pet/delete(id=${pet.id},ownerId=${pet.owner.id})}">
-            <button type="button" class="btn btn-danger">Kill pet</button>
+            <button type="button" class="btn btn-danger">Remove pet</button>
         </a>
         <a th:href="@{/pet(id=${pet.id})}">
             <button type="button" class="btn btn-warning">Edit pet</button>
