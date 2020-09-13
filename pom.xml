@@ -11,7 +11,7 @@
     <groupId>com.sda.javagda34</groupId>
     <artifactId>thymeleafPets</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>pets</name>
     <description>Demo project for Spring Boot</description>
 
