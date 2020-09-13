@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sda.javagda34</groupId>
-    <artifactId>pets</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>thymeleafPets</artifactId>
+    <version>1.0</version>
     <packaging>war</packaging>
     <name>pets</name>
     <description>Demo project for Spring Boot</description>
@@ -31,6 +31,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
