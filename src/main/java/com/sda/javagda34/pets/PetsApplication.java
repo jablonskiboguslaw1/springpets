@@ -13,8 +13,4 @@ public class PetsApplication extends SpringBootServletInitializer {
     }
 
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(PetsApplication.class);
-    }
 }
